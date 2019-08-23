@@ -29,7 +29,7 @@ export default class List {
   drawListItem(listIndex) {
     let listItemTemplate = ""
     this.listItem.forEach((t, listItemIndex) => {
-      listItemTemplate += `<li>${t}<span class="btn-danger ml-3 pl-1 pr-1 rounded-circle justify-right" onclick="app.controllers.listController.deleteListItem(${listIndex}, ${listItemIndex})">X</span></li>`
+      listItemTemplate += `<li>${t}<span class="btn-danger ml-3 pl-1 pr-1 rounded-circle" onclick="app.controllers.listController.deleteListItem(${listIndex}, ${listItemIndex})">X</span></li>`
     });
     return listItemTemplate
   }

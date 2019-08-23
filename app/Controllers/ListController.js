@@ -50,6 +50,7 @@ export default class ListController {
     }
     deleteListItem(listIndex, listItemIndex) {
         _listService.deleteListItem(listIndex, listItemIndex)
+        window.confirm("Are you sure?")
         _drawLists()
     }
 }
