@@ -11,7 +11,26 @@ export default class ValuesService {
     //TODO  Here is where we handle all of our data manipulation, 
     //given the information you need in the controller, 
     //what methods will be required to support that functionality?
+    constructor() {
+        console.log("ValuesService here")
+    }
 
+    addList(newList) {
+        _state.lists.push(new List(newList))
+        console.log(_state.lists)
+    }
+
+    get List() {
+        return _state.lists.map(lists => new List(lists))
+    }
+
+    deleteList(id) {
+        _state.lists.forEach((lists, i) => {
+            if (lists._id == id) {
+                _state.lists.splice(i, 1)
+            }
+        })
+    }
 
 
 
