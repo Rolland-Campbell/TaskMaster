@@ -17,22 +17,25 @@ export default class ValuesService {
 
     addList(newList) {
         _state.lists.push(new List(newList))
-        console.log(_state.lists)
+        this.saveLists()
     }
 
     get List() {
-        return _state.lists.map(lists => new List(lists))
+        return _state.lists.map(list => new List(list))
     }
 
-    deleteList(id) {
-        _state.lists.forEach((lists, i) => {
-            if (lists._id == id) {
-                _state.lists.splice(i, 1)
-            }
-        })
+    deleteListItem(listIndex, listItemIndex) {
+        _state.lists[listIndex].listItem.splice(listIndex, 1)
+        this.saveLists()
     }
-
-
+    deleteList(index) {
+        _state.lists.splice(index, 1)
+        this.saveLists()
+    }
+    addListItem(newListItem, listItemIndex) {
+        _state.lists[listItemIndex].listItem.push(newListItem)
+        this.saveLists()
+    }
 
     //NOTE You will need this code to persist your data into local storage, these methods should not require changing
 
