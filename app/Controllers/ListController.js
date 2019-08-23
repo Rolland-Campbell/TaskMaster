@@ -39,7 +39,7 @@ export default class ListController {
     addListItem(event, listIndex) {
         event.preventDefault()
         let form = event.target
-        let newListItem = form.listItems.value
+        let newListItem = form.listItem.value
         _listService.addListItem(newListItem, listIndex)
         _drawLists()
     }
