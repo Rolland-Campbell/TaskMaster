@@ -31,7 +31,7 @@ export default class ListController {
         event.preventDefault()
         let form = event.target
         let newList = {
-            name: form.name.value
+            listName: form.name.value
         }
         _listService.addList(newList)
         _drawLists()
@@ -45,6 +45,7 @@ export default class ListController {
     }
     deleteList(index) {
         _listService.deleteList(index)
+        window.confirm("Are you sure?")
         _drawLists()
     }
     deleteListItem(listIndex, listItemIndex) {
